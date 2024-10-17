@@ -7,4 +7,5 @@ This project is based loosely on the course of [dbt zero to hero]("https://githu
 Any comments or crtiques are appreciated.
 
 ### To do list
-- Ingesting data from csv to redshift
+- Ingesting data from csv to s3 bucket
+- ingesting data from s3 to redshift
