@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 from google.auth import default
 import pandas as pd
-from gcs_helper import get_file_list
+from airflow.dags.helper.gcs_helper import get_file_list
 import re
 
 #Creating client

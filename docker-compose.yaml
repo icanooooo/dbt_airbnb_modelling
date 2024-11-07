@@ -47,7 +47,7 @@ services:
       - ./airflow/dags:/opt/airflow/dags
       - ./var/run/docker.sock:/var/run/docker.sock
       - ./elt:/opt/airflow/elt
-      - ./keys/bigquery-project.json:/opt/airflow/keys/bigquery-project.json
+      - ./keys/credentials.json:/opt/airflow/keys/credentials.json
     env_file:
       - .env
     ports:
@@ -70,7 +70,7 @@ services:
       - ./airflow/dags:/opt/airflow/dags
       - ./var/run/docker.sock:/var/run/docker.sock
       - ./elt:/opt/airflow/elt
-      - ./keys/bigquery-project.json:/opt/airflow/keys/bigquery-project.json
+      - ./keys/credentials.json:/opt/airflow/keys/credentials.json
     env_file:
       - .env
     command: scheduler

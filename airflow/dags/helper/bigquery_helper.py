@@ -1,11 +1,11 @@
 from google.cloud import bigquery
 from google.auth import default
 import pandas as pd
-from gcs_helper import get_file_list
+from airflow.dags.helper.gcs_helper import get_file_list
 import re
 
 #Creating client
-def create_client():
+def create_bq_client():
     scopes=["https://www.googleapis.com/auth/cloud-platform"]
 
     credentials, _ = default(scopes=scopes)

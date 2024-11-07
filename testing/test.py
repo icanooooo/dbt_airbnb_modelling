@@ -1,4 +1,4 @@
-from gcs_helper import create_gcs_client, download_files_from_gcs, get_file_list
+from airflow.dags.helper.gcs_helper import create_gcs_client, download_files_from_gcs, get_file_list
 from bigquery_helper import create_client, gcs_to_bigquery, load_csv_bucket_to_bigquery
 import re
 
