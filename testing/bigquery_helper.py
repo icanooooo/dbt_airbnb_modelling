@@ -1,6 +1,8 @@
 from google.cloud import bigquery
 from google.auth import default
 import pandas as pd
+from gcs_helper import get_file_list
+import re
 
 #Creating client
 def create_client():
@@ -92,6 +94,7 @@ def gcs_to_bigquery(client, gcs_uri, dataset_id, table):
         source_format=bigquery.SourceFormat.CSV,
         autodetect=True,
         skip_leading_rows=1,
+        max_bad_records=500
     )
 
     load_job = client.load_table_from_uri(
@@ -100,4 +103,21 @@ def gcs_to_bigquery(client, gcs_uri, dataset_id, table):
 
     result = load_job.result()
 
+    print(f"Succesfully load to {gcs_uri} to bigquery")
+
     return result
+
+def load_csv_bucket_to_bigquery(gcs_client, bq_client, gcs_bucket, dataset_id):
+    filelist = get_file_list(gcs_client, gcs_bucket)
+
+    for filename in filelist:
+        if '.csv' in filename:
+            gcs_uri = f"gs://{gcs_bucket}/{filename}"
+
+            match = re.search(r'([^\/]+)(?=\.[^.]+$)', filename)
+            table = match.group(0)
+            table_id = table + '_source'
+
+            gcs_to_bigquery(bq_client, gcs_uri, dataset_id, table_id)
+
+

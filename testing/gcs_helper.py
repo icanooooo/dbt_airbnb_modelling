@@ -14,3 +14,11 @@ def download_files_from_gcs(client, bucket, blob, filename):
 
     print(f"Downloaded {gcs_blob} as {filename}")
 
+def get_file_list(client, bucket_name):
+    blobs = client.list_blobs(bucket_name)
+    blob_list = []
+
+    for blob in blobs:
+        blob_list.append(blob.name)
+
+    return blob_list
