@@ -1,6 +1,6 @@
 from airflow import DAG
 from datetime import datetime
-from airflow.operators.python import PythonOperator
+from airflow.operators.python import PythonOperator # type: ignore
 from helper.gcs_helper import create_gcs_client
 from helper.bigquery_helper import create_bq_client, load_csv_bucket_to_bigquery
 
