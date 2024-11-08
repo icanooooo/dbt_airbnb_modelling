@@ -6,7 +6,7 @@ airflow db init
 
 # Create the admin user
 airflow users create \
-    --username purwadika \
+    --username admin \
     --password rahasia \
     --firstname Muhammad \
     --lastname Ihsan \

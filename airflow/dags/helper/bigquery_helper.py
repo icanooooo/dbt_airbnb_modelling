@@ -116,7 +116,7 @@ def load_csv_bucket_to_bigquery(gcs_client, bq_client, gcs_bucket, dataset_id):
 
             match = re.search(r'([^\/]+)(?=\.[^.]+$)', filename)
             table = match.group(0)
-            table_id = table + '_source'
+            table_id = table + '_table_source'
 
             gcs_to_bigquery(bq_client, gcs_uri, dataset_id, table_id)
 
