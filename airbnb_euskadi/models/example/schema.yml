@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: neighbourhood_table_dim
+  - name: neighbourhoods_table_dim
     description: "Euskadi's neighbourhood table"
     columns:
       - name: id
