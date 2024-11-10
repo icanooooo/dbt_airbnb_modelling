@@ -4,3 +4,7 @@ testing/keys/
 testing/source/
 
 __pycache__/
+
+target/
+dbt_packages/
+logs/
