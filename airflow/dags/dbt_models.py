@@ -1,6 +1,6 @@
 from airflow import DAG
 from datetime import datetime
-from airflow.operators.bash import BashOperator
+from airflow.operators.bash import BashOperator # type: ignore
 
 with DAG('dbt_models',
          start_date=datetime(2024, 11, 8),
