@@ -3,8 +3,8 @@ from datetime import datetime
 from airflow.operators.bash import BashOperator # type: ignore
 
 dbt_tail = " --profiles-dir /opt/airflow/profiles --project-dir /opt/airflow/airbnb_euskadi"
-dbt_1 = "dbt run --models neighbourhoods_table_dim listing_table-dims review_table_facts" + dbt_tail
-dbt_2 = "dbt run --models host_table_dims" + dbt_tail
+dbt_1 = "dbt run --models neighbourhoods_table_dim listings_table_dim reviews_table_fct" + dbt_tail
+dbt_2 = "dbt run --models host_table_dim" + dbt_tail
 
 with DAG('dbt_models',
          start_date=datetime(2024, 11, 8),
@@ -19,7 +19,7 @@ with DAG('dbt_models',
     )
 
     new_model_dbt = BashOperator(
-        task_id='creating models based on cleansed table',
+        task_id='creating_new_models',
         bash_command=dbt_2
     )
 

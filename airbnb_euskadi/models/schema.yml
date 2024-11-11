@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: listings_table_dims
+  - name: listings_table_dim
     description: "Euskadi's Airbnb listings"
     columns:
       - name: id
@@ -65,7 +65,7 @@ models:
           - unique
           - not_null
 
-  - name: reviews_table_facts
+  - name: reviews_table_fct
     description: "Euskadi's Airbnb reviews"
     columns:
       - name: listing_id
@@ -94,7 +94,7 @@ models:
         data_tests:
           - not_null
 
-  - name: host_table_dims
+  - name: host_table_dim
     description: "Euskadi's Airbnb host_table"
     columns:
       - name: id
