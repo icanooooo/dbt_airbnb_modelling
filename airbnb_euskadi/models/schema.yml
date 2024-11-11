@@ -1,0 +1,100 @@
+
+version: 2
+
+models:
+  - name: listings_table_dims
+    description: "Euskadi's Airbnb listings"
+    columns:
+      - name: id
+        description: "Primary key for this table"
+        data_tests:
+          - not_null
+          - unique
+      - name: listing_name
+        description: "Name of the listings"
+        data_tests:
+          - not_null
+      - name: host_id
+        description: "id for the host"
+        data_tests:
+          - not_null
+      - name: neighbourhood
+        description: "neighbourhood of listing"
+        data_tests:
+          - not_null
+      - name: latitude
+        description: "latitude"
+        data_tests:
+          - not_null
+      - name: longitude
+        description: "longitude"
+        data_tests:
+          - not_null
+      - name: room_type
+        description: "room type for listings"
+        data_tests:
+          - not_null
+      - name: price
+        description: "price for listing"
+        data_tests:
+          - not_null
+      - name: minimum_nights
+        description: "minimum nights for renting the listings"
+        data_tests:
+          - not_null
+      - name: license
+        description: "license key for listings"
+        data_tests:
+          - not_null
+
+  - name: neighbourhoods_table_dim
+    description: "Euskadi's neighbourhood table"
+    columns:
+      - name: id
+        description: "primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: neighbourhood_group
+        description: "neighbourhood group in euskadi"
+        data_tests:
+          - not_null
+      - name: neighbourhood
+        description: "neighbourhood in euskadi"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: reviews_table_facts
+    description: "Euskadi's Airbnb reviews"
+    columns:
+      - name: listing_id
+        description: "id for the listing"
+        data_tests:
+          - not_null
+      - name: id
+        description: "primary key for reviews table"
+        data_tests:
+          - not_null
+          - unique
+      - name: review_post_date
+        description: "neighbourhood in euskadi"
+        data_tests:
+          - not_null
+      - name: reviewer_id
+        description: "id of review"
+        data_tests:
+          - not_null
+      - name: reviewer_name
+        description: "reviewer name"
+        data_tests:
+          - not_null
+      - name: comments
+        description: "reviewer comment"
+        data_tests:
+          - not_null
+
+
+
+
+          
