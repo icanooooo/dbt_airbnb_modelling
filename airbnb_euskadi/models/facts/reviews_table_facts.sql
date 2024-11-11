@@ -1,3 +1,11 @@
+{{
+    config(
+        materialized = 'incremental',
+        on_schema_change='fail'
+    )
+}}
+
+
 WITH source_reviews AS (
     SELECT * FROM `dbt-icanooo.airbnb_euskadi.reviews_table_source`
 )

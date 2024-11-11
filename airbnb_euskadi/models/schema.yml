@@ -94,7 +94,18 @@ models:
         data_tests:
           - not_null
 
-
+  - name: host_table_dims
+    description: "Euskadi's Airbnb host_table"
+    columns:
+      - name: id
+        description: "primary key for host_table"
+        data_tests:
+          - not_null
+          - unique
+      - name: name
+        description: "host for listing owner"
+        data_tests:
+          - not_null
 
 
           

@@ -1,3 +1,9 @@
+{{
+    config(
+        materialized = 'view'
+    )
+}}
+
 WITH source_listings AS (
     SELECT * FROM `dbt-icanooo.airbnb_euskadi.listings_table_source`
 ),

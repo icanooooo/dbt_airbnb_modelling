@@ -1,3 +1,9 @@
+{{
+    config(
+        materialized = 'view'
+    )
+}}
+
 WITH source_neighbourhood AS (
     SELECT * FROM `dbt-icanooo.airbnb_euskadi.neighbourhoods_table_source`
 )
