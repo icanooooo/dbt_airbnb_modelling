@@ -11,7 +11,7 @@ with DAG('dbt_models',
     
     dimensional_dbt = BashOperator(
         task_id='run_dbt',
-        bash_command='dbt run --models neighbourhoods_table_dim --profiles-dir /opt/airflow/profiles --project-dir /opt/airflow/airbnb_euskadi'
+        bash_command='dbt run --models neighbourhoods_table_dim listing_table-dims review_table_facts --profiles-dir /opt/airflow/profiles --project-dir /opt/airflow/airbnb_euskadi'
     )
 
     dimensional_dbt

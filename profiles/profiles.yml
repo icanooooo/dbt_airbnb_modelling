@@ -9,6 +9,6 @@ airbnb_euskadi:
       method: service-account
       priority: interactive
       project: dbt-icanooo
-      threads: 1
+      threads: 4
       type: bigquery
   target: dev
