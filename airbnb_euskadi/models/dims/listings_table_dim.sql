@@ -12,6 +12,7 @@ source_listings_cleansed as (
         safe_cast(id as int64) AS id,
         name as listing_name,
         host_id,
+        host_name,
         neighbourhood,
         cast(latitude as float64) as latitude,
         cast(longitude as float64) as longitude,

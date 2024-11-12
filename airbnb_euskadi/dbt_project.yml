@@ -36,3 +36,5 @@ models:
       +materialized: table
     facts:
       +materialized: table
+    mart:
+      +materialized: table

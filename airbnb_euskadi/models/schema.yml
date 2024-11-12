@@ -107,5 +107,25 @@ models:
         data_tests:
           - not_null
 
-
+  - name: neighbourhood_reviews_mart
+    description: "Summary of Review by neighbourhood"
+    columns:
+      - name: id
+        description: "primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: neighbourhood_group
+        description: "neighbourhood group in euskadi"
+        data_tests:
+          - not_null
+      - name: neighbourhood
+        description: "neighbourhood in euskadi"
+        data_tests:
+          - unique
+          - not_null
+      - name: count_of_reviews
+        description: "Count of review per neighbourhood"
+        data_tests:
+          - not_null
           

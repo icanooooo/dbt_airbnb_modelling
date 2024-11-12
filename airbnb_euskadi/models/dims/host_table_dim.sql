@@ -8,7 +8,7 @@ WITH source_listings AS (
     SELECT 
         safe_cast(host_id as int64) as host_id,
         host_name
-    FROM `dbt-icanooo.airbnb_euskadi.listings_table_source`
+    FROM {{ ref('listings_table_dim') }}
 ),
 host_table_full as (
     SELECT
