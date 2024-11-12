@@ -1,0 +1,15 @@
+version: 2
+
+exposures:
+  - name: Looker Dashboard
+    type: dashboard
+    maturity: low
+    url: https://lookerstudio.google.com/reporting/8a45ff57-fd4d-4d65-a9ba-4b0401deaafe
+    description: Dashboard of Airbnb Listing Reviews in Euskadi's
+
+    depends_on:
+      - ref('neighbourhood_reviews_mart')
+    
+    owner:
+      name: Muhammad Ihsan
+      email: muhihsan0@outlook.com
