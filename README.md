@@ -16,11 +16,11 @@ Both webserver & scheduler use the same environment using the `.env` file. Both 
 
 As per above, as we can see, we use DBT to effieciently create models using models using sql queries to transform the data. Making it easier for us reuse queries and  transformation for further transformation.
 
-DBT is perfect when we the data we want to transform is already loaded to the warehouse (in this case BigQuery) of our project, alias an ELT (Extract, Load, Transform) approach.
+DBT is perfect when the data we want to transform is already loaded to the warehouse (in this case BigQuery) of our project, alias an ELT (Extract, Load, Transform) approach.
 
-Afer we created the DBT project directory, we add the directory to the airflow volumes, so it can be found when it is being runned by task.
+After we created the DBT project directory, we add the directory to the airflow volumes, so it can be found when it is being runned by task.
 
-I install dbt in this project by installing it first in the init_airflow images and then add the profiles and project folder so airflow can find them. Therefore, we can just use the BashOperator and run it with shell commands below.
+I install dbt in this project by installing it first in the init_airflow images and then add the profiles and project folder so airflow can find them. Therefore, we can just use the BashOperator and run it with shell commands below as you can also see here.
 
 ```
 dbt run --models model_name --profiles-dir dir/to/dbt/profiles --project-dir dir/to/dbt/project
