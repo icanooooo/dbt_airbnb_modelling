@@ -20,7 +20,7 @@ DBT is perfect when the data we want to transform is already loaded to the wareh
 
 After we created the DBT project directory, we add the directory to the airflow volumes, so it can be found when it is being runned by task.
 
-I install dbt in this project by installing it first in the init_airflow images and then add the profiles and project folder so airflow can find them. Therefore, we can just use the BashOperator and run it with shell commands below as you can also see here.
+I install dbt in this project by installing it first in the init_airflow images and then add the profiles and project folder so airflow can find them. Therefore, we can just use the BashOperator and run it with shell commands below as you can also see <a href='airflow/dags/dbt_models.py'>here</a>.
 
 ```
 dbt run --models model_name --profiles-dir dir/to/dbt/profiles --project-dir dir/to/dbt/project
