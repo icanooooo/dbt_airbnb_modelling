@@ -14,10 +14,10 @@ with DAG('dbt_models',
          schedule='@weekly',
          catchup=False) as dag:
     
-    # cleansing_dbt = BashOperator(
-    #     task_id='cleansing_tables',
-    #     bash_command=dbt_1
-    # )
+    cleansing_dbt = BashOperator(
+        task_id='cleansing_tables',
+        bash_command=dbt_1
+    )
 
     new_model_dbt = BashOperator(
         task_id='creating_new_models',
