@@ -2,6 +2,22 @@
 
 This repo is used for learning purposes. The project aims to use DBT for Data Modelling with Airbnb ingested from Google Cloud Storage, hosted on Google BigQuery, and are visualized with Looker Studio.
 
+We use airflow to orchestrate our DAGs and task. To build airflow with docker we have to use 3 docker images from apache-airflow which is Airflow database, scheduler, and webserver.
+
+Besides the 3 docker images airflow, I created the init-airflow image which run the script of initializing airflow. This script will initiliaze and create an account which airflow will use (username: admin, password: rahasia). We have to ensure that initializion process is done before webserver & scheduler images run (this image depends on the airflow postgres to store airflow account info).
+
+Both webserver & scheduler use the same environment using the `.env` file. Both also uses the neccessary volumes needed to run the DAGs, such as our airbnb project & profiles directory, our keys, and our DAGs folder.
+
+<img src="assets/DataModel.png" alt="Data Model" width="75%">
+
+As per above, as we can see, we use DBT to effieciently create models using models using sql queries to transform the data. Making it easier for us reuse queries and  transformation for further transformation.
+
+DBT is perfect when we the data we want to transform is already loaded to the warehouse of our project, alias an ELT (Extract, Load, Transform) approach.
+
+Afer we created the DBT project directory, we add the directory to the airflow volumes, so it can be found when it is being runned by task.
+
+I install dbt in this project by installing it first in the init_airflow images and then add the profiles and project folder so airflow can find them. Therefore, we can just use the BashOperator and run it with shell commands.
+
 Project Diagram :
 
 <img src="assets/DiagramDBTModelling.png" alt="Project Diagram" width="75%">
