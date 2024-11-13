@@ -7,6 +7,9 @@ dbt_1 = "dbt run --models neighbourhoods_table_dim listings_table_dim reviews_ta
 dbt_2 = "dbt run --models host_table_dim" + dbt_tail
 dbt_3 = "dbt run --models neighbourhood_reviews_mart" + dbt_tail
 
+# I use nvim btw
+# Sometimes
+
 with DAG('dbt_models',
          start_date=datetime(2024, 11, 12),
          description='Using dbt to create models',
