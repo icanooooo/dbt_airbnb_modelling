@@ -4,7 +4,7 @@ from airflow.operators.bash import BashOperator # type: ignore
 
 dbt_tail = " --profiles-dir /opt/airflow/profiles --project-dir /opt/airflow/airbnb_euskadi"
 dbt_1 = "dbt run --models neighbourhoods_table_dim listings_table_dim reviews_table_fct" + dbt_tail
-dbt_2 = "dbt run --models host_table_dim" + dbt_tail
+dbt_2 = "dbt run --models host_table_dim reviewers_list_table_dim" + dbt_tail
 dbt_3 = "dbt run --models neighbourhood_reviews_mart" + dbt_tail
 
 # I use nvim btw
