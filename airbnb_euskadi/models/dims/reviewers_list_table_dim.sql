@@ -7,7 +7,7 @@
 WITH reviewers as (
     SELECT
         *
-    FROM `dbt-icanooo.airbnb_euskadi.reviews_table_fct`
+    FROM {{ ref('reviews_table_fct')}}
 )
 
 SELECT
