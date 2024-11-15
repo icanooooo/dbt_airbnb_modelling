@@ -2,6 +2,12 @@
 
 This repo is used for learning purposes. The project aims to use DBT for Data Modelling with Airbnb ingested from Google Cloud Storage, hosted on Google BigQuery, and are visualized with Looker Studio.
 
+### Data & Project Overview
+
+The data we used is from <a href='https://insideairbnb.com/get-the-data/'>Inside Airbnb</a>, consisting three datasets of lstings, neighbourhoods, and reviews from CSV files. We upload these csv data to google cloud storage and then we want to create a script to ingest it, putting it on on Google Bigquery. With these data sources we want to create dimensional and fact table models, cleansing it to be ready for use, and finally to create a datamart. We also create more dimensional table for hosts (from listings tables) and reviewers (from reviews table).
+
+Details of how the lineage graph works will be explain more in the Data Build Tool (DBT) section of this documentation.
+
 ### Airflow
 
 We use airflow to orchestrate our DAGs and task. To build airflow with docker, I created 4 docker images from apache-airflow which is init-airflow, Airflow database, scheduler, and webserver.
@@ -26,14 +32,16 @@ I install dbt in this project by installing it first in the init_airflow images 
 dbt run --models model_name --profiles-dir dir/to/dbt/profiles --project-dir dir/to/dbt/project
 ```
 
+From these data sources, we build listings and neighbourhoods tables as dimensional tables, and reviews table as a fact table. We also create host dimensional table from listings, and reviewers dimensional table from reviews, for future use & analysis. Finally we created a neighbourhood reviews datamart that will be used for dashboard as we can see from the DBT exposure downstream from the datamart.
+
 ### Summary
 
 We can see below for the complete project directory, showing how dbt interacts with BigQuery and are ran with Airflow within Docker.
 
 <img src="assets/DiagramDBTModelling.png" alt="Project Diagram" width="75%">
 
-This project is based loosely on the course of [dbt zero to hero](https://github.com/nordquant/complete-dbt-bootcamp-zero-to-hero). But focusing more on using Google Cloud Service buckets to store csv files, ingesting it to bigquery and repractising my data modelling skills with a different dataset.
+This project is based loosely on the course of [dbt zero to hero](https://github.com/nordquant/complete-dbt-bootcamp-zero-to-hero). But focusing more on using Google Cloud Service buckets to store csv files, ingesting it to bigquery and creating dbt models orchestrated with airflow.
 
-The dashboard can be opened [here](https://lookerstudio.google.com/reporting/8a45ff57-fd4d-4d65-a9ba-4b0401deaafe). It's not finished yet, but if you want to play around and check my progress, you can check it there.
+The dashboard can be opened [here](https://lookerstudio.google.com/reporting/8a45ff57-fd4d-4d65-a9ba-4b0401deaafe). It will updated from time to time, for future improvments.
 
-Any comments or crtiques are appreciated.
+Any comments or crtiques are appreciated, thank you.
